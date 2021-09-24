@@ -6,7 +6,7 @@ function carregandoJanela() {
 
     setTimeout(() => {
         loading.style.display = 'none';
-    }, 2500);
+    }, 500);
 }
 
 let sectionTarefas = document.getElementById('secao-tarefas');
@@ -36,6 +36,8 @@ async function requisitarTarefas() {
             let novaTarefa = criarTarefa(resquisicao[i].title, resquisicao[i].id)
             if(resquisicao[i].completed == true) {
                 novaTarefa.children[1].children[0].classList.toggle('tachado');
+                novaTarefa.style.opacity = "0.87";
+                novaTarefa.style.filter = "grayscale(0.75)";
             }
             sectionTarefas.appendChild(novaTarefa);
         }

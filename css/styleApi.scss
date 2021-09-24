@@ -7,6 +7,19 @@
     text-decoration-style: none;
 }
 
+.bg_video{
+	position: fixed; 
+	right: 0; 
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	width: auto; 
+	height: auto; 
+	z-index: -1000;
+	background: url(https://static.tudointeressante.com.br/uploads/2014/05/gifs-natureza-bela-4.gif) no-repeat;
+	background-size: cover; 
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -35,10 +48,10 @@ main {
         justify-content: center;
         flex-flow: row wrap;
         width: 95vw;
-        border: 1px solid black;
+        // border: 1px solid black;
         
         article {
-            border: 1px dotted black;
+            // border: 1px dotted black;
             display: grid;
             grid-template-rows: 0.5fr 1fr 0.5fr;
             grid-template-columns: 1fr;
@@ -52,12 +65,16 @@ main {
             height: 180px;
             justify-content: flex-start;
             flex-flow: row wrap;
-            background-image: url('../midias/note.jpg');
+            background-image: url('../midias/caderno.png');
             background-position: center;
             background-size: cover;
+            opacity: 0.89;
 
             p {
                 color: #000;
+                margin-top: 45px;
+                margin-left: 5px;
+                margin-bottom: 10px;
             }
             
             &:hover {
@@ -95,6 +112,9 @@ main {
         align-self:center;
         margin-top: 7px;
         font-size: 12px;
+        background-color: rgba(20, 19, 18, 0.116);
+        border-radius: 20px;
+        padding: 5px;
         color: #000;
     }
 }

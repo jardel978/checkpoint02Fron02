@@ -25,11 +25,11 @@ for (objTarefa of minhasTarefas) {//leitura de itens no localStorage
 let iconsChecked = document.querySelectorAll('[data-click-checked]');
 iconsChecked.forEach(el => el.addEventListener('click', (e) => {
     e.preventDefault();
-    // let idTarefa = parseInt(el.id);
-    // let indexTarefa = indexTarefas.indexOf(idTarefa);
     let divInput = el.parentElement;
+    let artigo = divInput.parentElement
     let paragrafo = divInput.parentElement.children[2].children[0];
     paragrafo.classList.toggle('tachado');
+    artigo.classList.toggle('artigo-checked');
 }))
 
 

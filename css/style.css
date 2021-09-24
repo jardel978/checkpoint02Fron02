@@ -116,6 +116,12 @@ main section article input {
   padding: 5px;
 }
 
+.artigo-checked {
+  -webkit-filter: grayscale(0.75);
+          filter: grayscale(0.75);
+  opacity: 0.8;
+}
+
 .escolhas-none {
   display: none;
 }
