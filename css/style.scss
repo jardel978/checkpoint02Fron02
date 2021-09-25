@@ -1,24 +1,51 @@
+@import "./fonts";
 *{
     margin: 0;
-    bottom: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    text-decoration-style: none;
+    // text-decoration: none;
+}
+
+.bg_video{
+	position: fixed; 
+	right: 0; 
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	width: auto; 
+	height: auto; 
+	z-index: -1000;
+	background: url('../midias/astronauta.jpg') no-repeat;
+	background-size: cover; 
 }
 
 header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Space Age';
+    font-size: 25px;
+    font-weight: lighter;
+    
     nav {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        flex-flow: row nowrap;
         align-items: center;
-        width: 60vw;
+        width: 70vw;
         padding: 15px;
         a {
-            color: inherit;
+            text-shadow: 3px -2px 2px rgba(0, 0, 0, 0.959);
+            color: aliceblue;
+            transform: scaleY(1.4);
+            padding: 7px;
+            
+            &:hover {
+                animation: box-neon 1s ease-in-out infinite alternate;
+                border-radius: 10px;
+                background-color: rgba(0, 0, 0, 0.548);
+            }
+
         } 
     }
 }
@@ -36,26 +63,29 @@ main {
         flex-flow: row wrap;
         width: 95vw;
         min-height: 75vh;
-        border: 1px solid black;
+        background-color: rgba(85, 52, 14, 0.212);
         
         article {
-            border: 1px dotted black;
             display: grid;
-            grid-template-rows: 0.5fr 1fr 0.5fr;
+            grid-template-rows: 0.5fr 1.5fr 0.5fr;
             grid-template-columns: 1fr;
             grid-area: "icons"
                         "descricao"
                         "datas";
-            border-radius: 7px;
+            border-radius: 7px 17px 7px;
             margin: 10px;
             padding: 5px;
             width: 195px;
             height: 180px;
             justify-content: flex-start;
             flex-flow: row wrap;
+            font-family: "Baline Script";
+            font-size: 19px;
+            letter-spacing: 0.8px;
+            background-color: rgba(49, 40, 29, 0.733);
 
             p {
-                color: #000;
+                color: rgb(216, 201, 184);
             }
             
             &:hover {
@@ -71,7 +101,11 @@ main {
                 width: 32px;
                 height: 32px;
                 padding: 5px;
-                // border: 1px solid black;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
     }
@@ -88,8 +122,6 @@ main {
 
 .escolhas-flex {
     position: relative;
-    // top: 35px;
-    // left: 0;
     width: 180px;
     height: 30px;
     display: flex;
@@ -99,7 +131,8 @@ main {
         padding: 10px;
         margin: 2px;
         border: 1px solid white;
-        border-radius: 7px;
+        border-radius: 100%;
+        opacity: 0.7;
         
         &:hover {
             cursor: pointer;
@@ -107,19 +140,20 @@ main {
             border: 1px solid black;
         }
     }
-    // border: 1px solid black;
 }
 
 .section__box-icons {
     grid-area: "icons";
     display: flex;
     justify-content: flex-end;
-    width: 170px;
+    width: 180px;
 }
 
 .section__box-paragrafo {
     grid-area: "descricao";
-    align-self: center;
+    align-self: flex-end;
+    width: 180px;
+    height: 45px;
 
     p {
         transform: translateY(-40px);
@@ -140,16 +174,27 @@ main {
 
 details {
     text-align: center;
+    margin-bottom: 25px;
+    animation: texto-neon .6s ease-in-out infinite alternate;
+    
     summary {
         padding: 10px;
         font-size: 22px;
-        // list-style:disc;
+        list-style: none;
+        font-family: 'Space Age';
+        font-size: 25px;
+        transform: scaleY(1.7);
+        color: rgba(34, 31, 31, 0.884);
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(233, 231, 231, 0.212);
+        }
     }
 }
 
 
 form {
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -158,21 +203,40 @@ form {
     border-radius: 10px;
     
     input {
-        padding: 10px;
-        margin: 5px;
+        margin: 20px 0 10px 0;
+        padding: 17px;
+        width: 280px;
         border-radius: 5px;
         border: none;
+        background-color: rgba(65, 44, 18, 0.247);
+        font-size: 15px;
+        
         &:focus {
             outline: none;
+            color: rgb(36, 22, 4);
+            background-color: rgba(247, 244, 240, 0.712);
+            transform: scale(1.1);
+        }
+
+        &:hover::placeholder {
+            color: rgba(109, 83, 48, 0.774);
+        }
+        &::placeholder {
+            color: rgb(197, 181, 158);
         }
     }
 
     button {
-        height: 40px;
+        height: 50px;
         border-radius: 10px;
         margin: 7px;
         font-weight: bold;
-
+        background-color: rgba(75, 104, 148, 0.774);
+        border: none;
+        animation: box-neon .7s ease-in-out infinite alternate;
+        font-size: 17px;
+        color: rgba(247, 245, 243, 0.637);
+        
         &:hover {
             cursor: pointer;
             transform: scale(1.05);
@@ -188,8 +252,7 @@ form {
     flex-direction: row;
     width: 60px;
     height: 35px;
-    background-color: rgb(44, 6, 80);
-    // margin: 0 auto;
+    background-color: rgb(85, 52, 14);
     border-radius: 50rem;
     margin-left: 20px;
 }
@@ -204,11 +267,11 @@ form {
   
 .circulo-2 {
     position: absolute;
-    top: 0.45em;
+    top: 0.7em;
     transform: translateX(70%);
     width: 28px;
     height: 22px;
-    background-color: white;
+    background-color: rgb(228, 220, 213);
     border-radius: 50%;
     align-self: start;
     transition-duration: 0.3s;
@@ -219,6 +282,8 @@ form {
       padding: 15px;
       text-align: center;
       bottom: 0;
+      color: rgba(255, 255, 255, 0.856);
+      font-size: 17px;
   }
 
  //animations
@@ -231,6 +296,23 @@ form {
     0%  {transform: translateX(100%); }
     100%   { transform: translateX(0%); }
   } 
+
+  @keyframes box-neon {
+    from {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.459), 0 0 15px rgba(255, 255, 255, 0.459), 0 0 25px rgba(255, 255, 255, 0.459), 0 0 35px #228dff6e, 0 0 65px #228dff6e, 0 0 75px #228dff6e, 0 0 85px #228dff6e, 0 0 95px #228dff6e;
+    }
+    to {
+      box-shadow: 0 0 0px rgba(255, 255, 255, 0.459), 0 0 5px rgba(255, 255, 255, 0.459), 0 0 10px rgba(255, 255, 255, 0.459), 0 0 13px #228dff6e, 0 0 27px #228dff6e, 0 0 35px #228dff6e, 0 0 45px #228dff6e, 0 0 60px #228dff6e;
+    }
+}
+  @keyframes texto-neon {
+    from {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.459), 0 0 15px rgba(255, 255, 255, 0.459), 0 0 25px rgba(255, 255, 255, 0.459), 0 0 35px #228dff6e, 0 0 65px #228dff6e, 0 0 75px #228dff6e, 0 0 85px #228dff6e, 0 0 95px #228dff6e;
+    }
+    to {
+      text-shadow: 0 0 0px rgba(255, 255, 255, 0.459), 0 0 5px rgba(255, 255, 255, 0.459), 0 0 10px rgba(255, 255, 255, 0.459), 0 0 13px #228dff6e, 0 0 27px #228dff6e, 0 0 35px #228dff6e, 0 0 45px #228dff6e, 0 0 60px #228dff6e;
+    }
+}
 
 //media query
 
@@ -261,7 +343,7 @@ form {
     }
 
     .circulo-2 {
-        top: 1.7rem;
+        top: 2.4rem;
     }
-    
 }
+

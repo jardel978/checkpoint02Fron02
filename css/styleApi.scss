@@ -1,3 +1,4 @@
+@import "./fonts";
 *{
     margin: 0;
     bottom: 0;
@@ -16,7 +17,7 @@
 	width: auto; 
 	height: auto; 
 	z-index: -1000;
-	background: url(https://static.tudointeressante.com.br/uploads/2014/05/gifs-natureza-bela-4.gif) no-repeat;
+	background: url('../midias/gifs-natureza-bela-4.gif') no-repeat;
 	background-size: cover; 
 }
 
@@ -24,6 +25,10 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Space Age';
+    font-size: 25px;
+    font-weight: lighter;
+
     nav {
         display: flex;
         justify-content: space-between;
@@ -31,7 +36,16 @@ header {
         width: 60vw;
         padding: 15px;
         a {
-            color: inherit;
+            text-shadow: 3px -2px 3px rgba(0, 0, 0, 0.959);
+            color: aliceblue;
+            transform: scaleY(1.4);
+            padding: 7px;
+            
+            &:hover {
+                border-radius: 10px;
+                background-color: rgba(0, 0, 0, 0.363);
+            }
+
         } 
     }
 }
@@ -52,30 +66,22 @@ main {
         
         article {
             // border: 1px dotted black;
-            display: grid;
-            grid-template-rows: 0.5fr 1fr 0.5fr;
-            grid-template-columns: 1fr;
-            grid-area: "icons"
-                        "descricao"
-                        "datas";
+            display: flex;
+            justify-content: space-around;
+            // align-items: center;
+            flex-flow: column wrap;        
             border-radius: 7px;
             margin: 10px;
             padding: 5px;
             width: 185px;
             height: 180px;
-            justify-content: flex-start;
-            flex-flow: row wrap;
             background-image: url('../midias/caderno.png');
             background-position: center;
             background-size: cover;
             opacity: 0.89;
-
-            p {
-                color: #000;
-                margin-top: 45px;
-                margin-left: 5px;
-                margin-bottom: 10px;
-            }
+            font-family: "Baline Script";
+            font-size: 20px;
+            letter-spacing: 0.7px;
             
             &:hover {
                 transform: scale(1.03);
@@ -89,37 +95,32 @@ main {
     }
 }
 
-.section__box-icons {
-    grid-area: "icons";
-    display: flex;
-    justify-content: flex-end;
-    width: 170px;
-}
 
 .section__box-paragrafo {
-    grid-area: "descricao";
     align-self: center;
+    margin-top: 20px;
+    margin-left: 7px;
+    width: 160px;
+    height: 95px;
+    color: #000;
 }
 
 .section__box-datas {
-    grid-area: "datas";
+    align-self: end;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    flex-flow: column wrap;
-
-    p {
-        align-self:center;
-        margin-top: 7px;
-        font-size: 12px;
-        background-color: rgba(20, 19, 18, 0.116);
-        border-radius: 20px;
-        padding: 5px;
-        color: #000;
-    }
+    justify-content: flex-end;
+    align-items: center;
+    flex-flow: row wrap;
+    height: 20px;
 }
 
-
+.id-card-api {    
+    font-size: 12px;
+    background-color: rgba(20, 19, 18, 0.137);
+    border-radius: 20px;
+    padding: 5px;
+    color: #000;
+}
 
 
 .tema {
@@ -129,7 +130,7 @@ main {
     flex-direction: row;
     width: 60px;
     height: 35px;
-    background-color: rgb(44, 6, 80);
+    background-color: rgb(85, 52, 14);
     border-radius: 50rem;
     margin-left: 20px;
 }
@@ -144,21 +145,23 @@ main {
   
 .circulo-2 {
     position: absolute;
-    top: 0.45em;
+    // top: 2.3em;
     transform: translateX(70%);
     width: 28px;
     height: 22px;
-    background-color: white;
+    background-color: rgb(228, 215, 204);
     border-radius: 50%;
     align-self: start;
     transition-duration: 0.3s;
     z-index: 1;
-    // border: 1px solid red;
   }
 
   footer {
       padding: 15px;
       text-align: center;
+      color: rgba(255, 255, 255, 0.856);
+      font-size: 17px;
+      bottom: 0;
   }
 
  //animations
@@ -170,9 +173,33 @@ main {
   @keyframes deslizar-2 {
     0%  {transform: translateX(100%); }
     100%   { transform: translateX(0%); }
-  } 
+} 
+
+  @keyframes card-neon {
+    from {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.459), 0 0 15px rgba(255, 255, 255, 0.459), 0 0 25px rgba(255, 255, 255, 0.459), 0 0 35px #228dff6e, 0 0 65px #228dff6e, 0 0 75px #228dff6e, 0 0 85px #228dff6e, 0 0 95px #228dff6e;
+    }
+    to {
+      box-shadow: 0 0 0px rgba(255, 255, 255, 0.459), 0 0 5px rgba(255, 255, 255, 0.459), 0 0 10px rgba(255, 255, 255, 0.459), 0 0 13px #228dff6e, 0 0 27px #228dff6e, 0 0 35px #228dff6e, 0 0 45px #228dff6e, 0 0 60px #228dff6e;
+    }
+  }
 
 //media query
+
+@media (max-width: 428px) {
+    header {
+        flex-direction: column;
+
+        nav {
+            align-self: center;
+            width: 100vw;
+        }
+    }
+
+    .circulo-2 {
+        top: 4.3rem;
+    }
+}
 
 @media (min-width: 429px) {
     header {
@@ -201,7 +228,7 @@ main {
     }
 
     .circulo-2 {
-        top: 1.7rem;
+        top: 2.3rem;
     }
     
 }

@@ -10,6 +10,7 @@ let dia = String(data.getDate()).padStart(2, '0');
 let mes = String(data.getMonth() + 1).padStart(2, '0');
 let ano = data.getFullYear();
 let dataAtual = ano + '-' + mes + '-' + dia;
+var cores = ["rgba(49, 40, 29, 0.733)", "#336699", "#006666", "#8C2703", "#011F26", "#0F71F2"];
 
 const localStorageTarefas = JSON.parse(localStorage.getItem('arrayTarefas'));
 const minhasTarefas = localStorage.getItem('arrayTarefas') !== null ? localStorageTarefas : [];
@@ -22,6 +23,8 @@ for (objTarefa of minhasTarefas) {//leitura de itens no localStorage
     sectionTarefas.appendChild(novoTarefa);
 }
 
+
+// function init(){
 let iconsChecked = document.querySelectorAll('[data-click-checked]');
 iconsChecked.forEach(el => el.addEventListener('click', (e) => {
     e.preventDefault();
@@ -32,33 +35,6 @@ iconsChecked.forEach(el => el.addEventListener('click', (e) => {
     artigo.classList.toggle('artigo-checked');
 }))
 
-
-function aplicarBackground(el, article) {
-    let paletaCores = article.children[1];
-    let input = article.children[0].children[1];
-   
-        return function () {
-            article.style.backgroundColor = el.value;
-            paletaCores.removeChild(paletaCores.firstChild);
-            input.disabled = false;
-        }
-}
-
-var cores = ["#003366", "#336699", "#006666", "#66FF99", "#CCFFFF", "#CCCCFF"];
-function criarPaleta(artigo) {
-    let divPaleta = document.createElement('div');
-    divPaleta.setAttribute('class', 'child-paleta');
-    cores.forEach(function (cor) {
-        var button = document.createElement('button');
-        button.setAttribute('class', 'btn-cor');
-        button.value = cor;
-        button.type = 'button';
-        button.style.backgroundColor = cor;
-        button.addEventListener('click', aplicarBackground(button, artigo));
-        divPaleta.appendChild(button);
-    });
-    return divPaleta;
-}
 
 let iconsColor = document.querySelectorAll('[data-click-color]');
 iconsColor.forEach(el => el.addEventListener('mouseover', (e) => {
@@ -88,6 +64,34 @@ iconsLixeira.forEach(el => el.addEventListener('click', (e) => {
     localStorage.setItem('arrayTarefas', JSON.stringify(minhasTarefas));//atualização do localStorage
     localStorage.setItem('idsTarefas', JSON.stringify(indexTarefas));//atualização do localStorage
 }))
+// }
+
+
+function aplicarBackground(el, article) {
+    let paletaCores = article.children[1];
+    let input = article.children[0].children[1];
+   
+        return function () {
+            article.style.backgroundColor = el.value;
+            paletaCores.removeChild(paletaCores.firstChild);
+            input.disabled = false;
+        }
+}
+
+function criarPaleta(artigo) {
+    let divPaleta = document.createElement('div');
+    divPaleta.setAttribute('class', 'child-paleta');
+    cores.forEach(function (cor) {
+        var button = document.createElement('button');
+        button.setAttribute('class', 'btn-cor');
+        button.value = cor;
+        button.type = 'button';
+        button.style.backgroundColor = cor;
+        button.addEventListener('click', aplicarBackground(button, artigo));
+        divPaleta.appendChild(button);
+    });
+    return divPaleta;
+}
 
 function objetoTarefa() {
     let tarefa = {};
@@ -147,5 +151,6 @@ botaoSalvar.addEventListener('click', (e) => {
         localStorage.setItem('idsTarefas', JSON.stringify(indexTarefas));
         sectionTarefas.appendChild(novaTarefa);
         location.reload();
+        // init();
     }
 })

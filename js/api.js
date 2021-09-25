@@ -6,7 +6,7 @@ function carregandoJanela() {
 
     setTimeout(() => {
         loading.style.display = 'none';
-    }, 500);
+    }, 2200);
 }
 
 let sectionTarefas = document.getElementById('secao-tarefas');
@@ -16,13 +16,11 @@ function criarTarefa(descricao, id) {
     artigo.setAttribute('id', 'visualizar');
     artigo.innerHTML =
      ` 
-    <div class="section__box-icons">
-    </div>
     <div class="section__box-paragrafo">
          <p>${descricao}</p>
-         <div class="section__box-datas">
-            <p>Id: ${id}</p>
-        </div>
+    </div>       
+    <div class="section__box-datas">
+        <p class="id-card-api">Id: ${id}</p>
     </div>
     `
     return artigo;
@@ -35,7 +33,7 @@ async function requisitarTarefas() {
         for (let i = 0; i < resquisicao.length; i++) {
             let novaTarefa = criarTarefa(resquisicao[i].title, resquisicao[i].id)
             if(resquisicao[i].completed == true) {
-                novaTarefa.children[1].children[0].classList.toggle('tachado');
+                novaTarefa.children[0].classList.toggle('tachado');
                 novaTarefa.style.opacity = "0.87";
                 novaTarefa.style.filter = "grayscale(0.75)";
             }
