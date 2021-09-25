@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    // text-decoration: none;
 }
 
 .bg_video{
@@ -166,8 +165,9 @@ main {
     justify-content: center;
     align-items: flex-end;
     flex-flow: column wrap;
-
+    
     p {
+        font-family: 'Courier New', Courier, monospace;
         font-size: 12px;
     }
 }
@@ -339,7 +339,6 @@ form {
     .tema {
         margin-left: 2.5vw;
         grid-area: "tema";
-        // align-self:stretch;
     }
 
     .circulo-2 {

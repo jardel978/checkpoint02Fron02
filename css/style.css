@@ -259,6 +259,7 @@ main section article input:hover {
 }
 
 .section__box-datas p {
+  font-family: 'Courier New', Courier, monospace;
   font-size: 12px;
 }
 
