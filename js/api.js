@@ -35,7 +35,10 @@ async function requisitarTarefas() {//função assíncriona que recupera dados d
                 novaTarefa.children[0].classList.toggle('tachado');//aplica propriedade de tachado ao texto da nota
                 novaTarefa.style.opacity = "0.87";//da opacidade a essa nota
                 novaTarefa.style.filter = "grayscale(0.75)";//deixa essa nota em escla de cinza
+            } else {
+                novaTarefa.style.fontWeight = "bold";
             }
+
             sectionTarefas.appendChild(novaTarefa);//apenda nota gerada à section
         }
     } catch (erro) {//para caso de erro no bloco try... emita um alerta do tipo Error

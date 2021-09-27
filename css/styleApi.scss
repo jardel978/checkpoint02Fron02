@@ -62,13 +62,10 @@ main {
         justify-content: center;
         flex-flow: row wrap;
         width: 95vw;
-        // border: 1px solid black;
         
         article {
-            // border: 1px dotted black;
             display: flex;
             justify-content: space-around;
-            // align-items: center;
             flex-flow: column wrap;        
             border-radius: 7px;
             margin: 10px;
